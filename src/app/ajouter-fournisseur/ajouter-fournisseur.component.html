@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="ngForm" (ngSubmit)="addFournisseur()"  class="form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Ajouter Fournisseur</legend>
+
+          <table class="table">
+
+            <tbody><tr>
+              <td><b>Code Fournisseur :</b></td>
+              <td><input name="code" formControlName="id" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Raison sociale :</b></td>
+              <td><input name="rs" type="text" formControlName="raisonSociale" class="form-control input-md" required=""></td>
+            </tr>
+            <tr>
+              <td><b>Nom :</b></td>
+              <td><input name="nom" formControlName="nom" type="text" class="form-control input-md"></td>
+            </tr>
+
+            <tr>
+              <td><b>Adresse :</b></td>
+              <td><input formControlName="adresse" name="adress" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>CP :</b></td>
+              <td><input name="cp" formControlName="cp" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Ville :</b></td>
+              <td><input name="ville" formControlName="ville" type="text" class="form-control input-md"></td>
+            </tr>
+
+
+            <tr>
+              <td><b>Téléphone :</b></td>
+              <td><input name="tel" formControlName="telephone" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Mobile :</b></td>
+              <td><input formControlName="mobile" name="mobile" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>E-mail :</b></td>
+              <td><input name="email" formControlName="email" type="mail" class="form-control input-md"></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" name="Ajouter" value="Ajouter" class="btn btn-success mx-2">Enregistrer</button>
+                <a routerLink="/fournisseur" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <form >
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+		<span style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		 	<table class="table table-striped">
+			   <tbody><tr>
+				     <td>
+					    <span class="input-group-text" style="width: 100%;">
+							<select name="idcat" id="idcat" class="form-control select2-hidden-accessible" style="width: 100%" data-select2-id="idcat" tabindex="-1" aria-hidden="true">
+							  <option value="" data-select2-id="2">Tous Gammes</option>
+
+								 <option *ngFor="let gamme of gammes" value="{{gamme.id}}">{{gamme.nom}}</option>
+
+
+
+							</select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-idcat-container"><span class="select2-selection__rendered" id="select2-idcat-container" role="textbox" aria-readonly="true" title="Tous Gammes">Tous Gammes</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+						</span>
+				    </td>
+					<td width="50%"><input name="nom" type="text" style="width: 100%;" value="" placeholder="Nom Famille" class="form-control input-md"></td>
+
+			   </tr>
+
+
+			</tbody></table>
+
+
+		</span>
+            </h5>
+          </div>
+
+
+          <form [formGroup]="searchformGroup" (ngSubmit)="handleSearchFamilles()">
+            <div class="card-footer">
+              <table width="100%">
+                <tbody><tr>
+                  <td class="text-left"><b>Total :</b> {{nbFamille}} </td>
+                  <td><input formControlName="keyword"></td>
+                  <td class="text-center">
+                    <button type="submit" name="Rechercher" value="Rechercher" class="btn btn-outline-success btn-sm  ">Rechercher</button>
+                  </td>
+                  <td class="text-right">
+                    <a routerLink="/ajouterFamille" type="button" class="btn btn-success btn-sm ">Ajouter Famille</a>
+                  </td>
+                </tr>
+                </tbody></table>
+            </div>
+          </form>
+
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-12">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th>Id famille</th>
+          <th>nom Famille</th>
+          <th>Gammes</th>
+          <th>CategorieId</th>
+          <th>Nbre Produit</th>
+          <th width="10%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+
+        </tr>
+        <tr  *ngFor="let famille of categorieFamille">
+          <td>{{famille.familleId}}</td>
+          <td>{{famille.familleNom}}</td>
+          <td>{{famille.categorieNom}}</td>
+          <td>{{famille.categorieId}}</td>
+          <td><b>Disponibilité : </b>20<br><b>Non Disponibilité : </b>2				<a href="https://boussettaprimeurs.fr/admin/produit.php?&amp;Rechercher=Rechercher&amp;idsouscat=5" target="_blank">
+            <br><b>Total : </b>{{famille.nbProductFamilleId}}</a>
+          </td>
+          <td width="10%">
+            <a (click)="handleFamille(famille)" class="btn btn-outline-warning btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Modifier</a>
+<!--            <a href="#" style="width: 100%;margin: 6% 0% 6% 0%;" class="thickbox btn btn-outline-primary btn-sm">Ordre Produits</a>-->
+            <a (click)="deleteFamille(famille)" class="btn btn-outline-danger btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Supprimer</a>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a class="page-link  classpageune " >1   </a></li>
+          <li class="page-item"><a class="page-link " href="#">2 </a></li>
+          <li class="page-item"><a class="page-link " href="#">3 </a></li>
+          <li class="page-item"><a class="page-link " href="#"> &gt; </a></li>
+          <li class="page-item"><a class="page-link " href="#"> &gt;&gt; </a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</div>

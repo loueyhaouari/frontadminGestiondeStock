@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <form [formGroup]="searchformGroup" (ngSubmit)="handleSearchgammes()" >
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+		<span style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+      <table class="table table-striped">
+
+			   <tbody>
+         <tr>
+				    <td width="50%"><input formControlName="keyword" name="nom" type="text" style="width: 100%;" value="" placeholder="Nom Gammes" class="form-control input-md"></td>
+				    <td width="50%"> <button type="submit" class="btn btn-success"><i class="bi bi-search"></i></button> </td>
+
+
+
+
+
+			   </tr>
+			</tbody>
+      </table>
+
+
+		</span>
+            </h5>
+          </div>
+
+
+          <div class="card-footer">
+            <table width="100%">
+              <tbody><tr>
+                <td class="text-left"><b>Total :</b> {{this.nbCategorie}}</td>
+                <td class="text-center">
+                  <button type="submit" name="Rechercher" value="Rechercher" class="btn btn-outline-success btn-sm  ">Rechercher</button>
+                </td>
+                <td class="text-right">
+                  <a href="#" class="thickbox btn btn-outline-primary btn-sm mx-1">Ordre</a>
+                  <a routerLink="/ajoutergammes" type="button" class="btn btn-success btn-sm ">Ajouter  Gammes</a>
+                </td>
+              </tr>
+              </tbody></table>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  <!--<div class="row">
+    <div class="col-12 text-right">
+      <a href="/admin/categorie.php?add=true"  type="button"  class="btn btn-success">Ajouter  Gammes</a>
+    </div>
+  </div>-->
+  <div class="row">
+
+    <div class="col-12">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th>Image</th>
+          <th>Nom Gammes</th>
+          <th>Description</th>
+          <th>Visibilité</th>
+          <th width="10%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let gamme of categories | async">
+          <th></th>
+          <td>{{gamme.nom}}</td>
+          <td></td>
+          <td>Oui</td>
+          <td width="10%">
+            <a (click)="handleEdit(gamme)" class="btn btn-outline-warning btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Modifier</a>
+            <a href="#" style="width: 100%;margin: 6% 0% 6% 0%;" class="thickbox btn btn-outline-primary btn-sm">Ordre Famille</a>
+            <a (click)="deletegamme(gamme)"  class="btn btn-outline-danger btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Supprimer</a>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a class="page-link  classpageune " href="#">1   </a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

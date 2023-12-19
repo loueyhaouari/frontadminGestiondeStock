@@ -1,0 +1,96 @@
+
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto px-0">
+      <div id="sidebar" class="collapse collapse-horizontal show border-end">
+        <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100 bg-light">
+        <b style="color: crimson;font-size: 18px" class="mb-5 mt-5">S.A.S. BOUSSETTA PRIMEURS</b>
+          <a routerLink="/user" class="list-group-item border-end-0 d-inline-block text-truncate "
+             data-bs-parent="#sidebar"><i class="fa fa-home">&nbsp;</i> <span>Tableau de bord</span> </a>
+          <a routerLink="gammes" class="list-group-item border-end-0 d-inline-block text-truncate " data-bs-parent="#sidebar">
+            <i class="fa fa-th-list">&nbsp;</i>
+            <span>Liste des Gammes</span></a>
+          <a routerLink="famille" class="list-group-item border-end-0 d-inline-block text-truncate "
+             data-bs-parent="#sidebar"><i class="fa fa-th-list">&nbsp;</i>
+            <span>Famille</span></a>
+          <a routerLink="produits" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-th-list">&nbsp;</i> <span>Liste des produits</span></a>
+          <a routerLink="commandes" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-sort-amount-asc">&nbsp;</i>
+            <span>Liste des commandes</span></a>
+          <a routerLink="rapport" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-window-restore">&nbsp;</i>
+            <span>Rapport</span></a>
+
+          <a routerLink="stock" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="bi fa-bitbucket-square">&nbsp;</i>
+            <span>Stock</span></a>
+
+<!--          <a routerLink="achat" class="list-group-item border-end-0 d-inline-block text-truncate"-->
+<!--             data-bs-parent="#sidebar"><i class="bi bi-cart-dash">&nbsp;</i>-->
+<!--            <span>Liste des achats</span></a>-->
+
+<!--          <a routerLink="statistique" class="list-group-item border-end-0 d-inline-block text-truncate"-->
+<!--             data-bs-parent="#sidebar"><i class="fa fa-bar-chart"></i>-->
+<!--            <span>Statistique produits</span></a>-->
+
+          <a routerLink="client" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-user">&nbsp;</i>
+            <span>Liste des clients</span></a>
+
+          <a routerLink="fournisseur" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-truck">&nbsp;</i>
+            <span>Liste des fournisseurs</span></a>
+
+          <a routerLink="utilisateur" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-user-circle">&nbsp;</i>
+            <span>Liste des utilisateurs</span></a>
+
+          <a routerLink="parametre" class="list-group-item border-end-0 d-inline-block text-truncate"
+             data-bs-parent="#sidebar"><i class="fa fa-cogs">&nbsp;</i>
+            <span>Paramètres</span></a>
+
+        </div>
+      </div>
+    </div>
+    <main class="col ps-md-2 pt-2">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-3 text-decoration-none btn btn-primary">
+                  <i class="bi bi-list bi-lg py-2 p-1"></i> </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  User
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profil</a></li>
+                  <li><a class="dropdown-item" href="#">Deconnexion</a></li>
+                  </ul>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+
+      <hr>
+      <div class="row">
+        <div class="col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

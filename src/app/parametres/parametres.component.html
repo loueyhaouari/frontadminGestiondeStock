@@ -1,0 +1,355 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <form method="POST" action="" class="form-horizontal">
+        <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center" colspan="3">Paramètres</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><b>Site Admin</b></td>
+            <td>
+
+              <input type="radio" name="siteadmin" id="radios-0" value="1" checked="" style="zoom: 1.5;"> Oui
+              <br>
+              <input type="radio" name="siteadmin" id="radios-1" value="0" style="zoom: 1.5;"> Non
+
+            </td>
+            <td class="text-center" rowspan="2">
+              <button type="submit" name="Ajouter" value="Ajouter" class="btn btn-success">Valider</button>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Image produit</b></td>
+            <td>
+
+              <input type="radio" name="imageproduit" id="radios-0" value="1" style="zoom: 1.5;"> Avec
+              <br>
+              <input type="radio" name="imageproduit" id="radios-1" value="0" checked="" style="zoom: 1.5;"> Sans
+
+            </td>
+
+          </tr>
+
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="col-6">
+
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center" colspan="2">Lister état</th>
+          <th class="text-right"><span data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success" id="addetat">Ajouter</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td><b>Etat</b></td>
+          <td><b>Actions</b></td>
+          <td class="text-right"></td>
+
+        </tr>
+
+
+
+        <tr *ngFor="let etat of etats">
+          <td>{{etat.nom}}</td>
+          <td colspan="2">
+            <span (click)="editEtat(etat)" data-bs-toggle="modal" data-bs-target="#exampleModalmodif1"  class="btn btn-outline-warning btn-sm mx-1">Modifier</span>
+            <span (click)="deleteEtat(etat)" class="btn btn-outline-danger btn-sm" >Supprimer</span>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center" colspan="2">Unité </th>
+          <th class="text-right"><span class="btn btn-success" id="addunite" data-bs-toggle="modal" data-bs-target="#exampleModal1">Ajouter</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><b>Unité</b></td>
+          <td><b>Actions</b></td>
+          <td></td>
+
+        </tr>
+
+        <tr *ngFor="let unite of unites">
+          <td>{{unite.nom}}</td>
+          <td colspan="2">
+            <span (click)="editUnite(unite)" data-bs-toggle="modal" data-bs-target="#exampleModalmodif2" class="btn btn-outline-warning btn-sm mx-1">Modifier</span>
+            <span (click)="deleteUnite(unite)" class="btn btn-outline-danger btn-sm">Supprimer</span>
+          </td>
+        </tr>
+
+        <tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th data-bs-toggle="modal" data-bs-target="#exampleModalmodif4" class="text-center" colspan="2">Liste E-mail </th>
+          <th class="text-right"><span class="btn btn-success" id="addemail" data-bs-toggle="modal" data-bs-target="#exampleModal4" >Ajouter</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><b>E-mail</b></td>
+          <td><b>Actions</b></td>
+          <td class="text-right"></td>
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center" colspan="2">Batiment </th>
+          <th class="text-right"><span class="btn btn-success" id="addblock" data-bs-toggle="modal" data-bs-target="#exampleModal2">Ajouter</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><b>Batiment</b></td>
+          <td><b>Actions</b></td>
+
+        </tr>
+
+        <tr *ngFor="let batiment of batiments">
+          <td>{{batiment.nom}}</td>
+          <td colspan="2">
+            <span (click)="editBatiment(batiment)" data-bs-toggle="modal" data-bs-target="#exampleModalmodif3" class="btn btn-outline-warning btn-sm mx-1" >Modifier</span>
+            <span class="btn btn-outline-danger btn-sm" (click)="deleteBatiment(batiment)">Supprimer</span>
+          </td>
+        </tr>
+
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+
+    </div>
+  </div>
+
+
+
+</div>
+<!-- Modal ajouter etat -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5" style="color:white;"  id="exampleModalLabel">Ajouter etat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngEtat" (ngSubmit)="addEtat()">
+
+      <div class="modal-body">
+         <h3 class="text-center" style="color:darkkhaki;">ETAT</h3>
+          <input formControlName="nom" class="form-control">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Ajouter unite -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+      <h1 class="modal-title fs-5" id="exampleModalLabel1" style="color:white;">Ajouter unite</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngUnite" (ngSubmit)="addUnite()">
+      <div class="modal-body">
+
+          <h3 class="text-center" style="color:darkkhaki;">Unite</h3>
+          <input formControlName="nom" class="form-control">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Ajouter Batiment -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5"  id="exampleModalLabel2" style="color: white">Ajouter Batiment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngBatiment" (ngSubmit)="addBatiment()">
+      <div class="modal-body">
+
+          <h3 class="text-center" style="color:darkkhaki;">BATIMENT</h3>
+          <input formControlName="nom" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" style="background-color: darkkhaki" class="btn ">Enregistrer</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ajouter Email-->
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div style="background-color:darkkhaki" class="modal-header">
+        <h1 class="modal-title fs-5" style="color: white" id="exampleModalLabel4">Ajouter Email</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <h3 class="text-center" style="color:darkkhaki;">E-mail</h3>
+          <input class="form-control">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalmodif1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5" style="color:white;"  id="exampleModalLabel">Modifier etat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngModifEtat" (ngSubmit)="updateEtat()">
+
+        <div class="modal-body">
+          <h3 class="text-center" style="color:darkkhaki;">ETAT</h3>
+          <input formControlName="nom" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+          <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalmodif2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5" style="color:white;"  id="exampleModalLabel">Modifier unite</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngModifUnite" (ngSubmit)="updateUnite()" >
+
+        <div class="modal-body">
+          <h3 class="text-center" style="color:darkkhaki;">UNITE</h3>
+          <input formControlName="nom" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+          <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalmodif3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5" style="color:white;"  id="exampleModalLabel">Modifier Batiment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="ngModifBatiment" (ngSubmit)="updateBatiment()">
+
+        <div class="modal-body">
+          <h3 class="text-center" style="color:darkkhaki;">Batiment</h3>
+          <input formControlName="nom" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+          <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalmodif4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: darkkhaki">
+        <h1 class="modal-title fs-5" style="color:white;"  id="exampleModalLabel">Modifier E-mail</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form >
+
+        <div class="modal-body">
+          <h3 class="text-center" style="color:darkkhaki;">E-mail</h3>
+          <input formControlName="nom" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+          <button type="submit" style="background-color: darkkhaki" class="btn">Enregistrer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

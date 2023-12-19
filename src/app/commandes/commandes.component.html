@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+		<span style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		<form class="form-inline" role="form" >
+			<table class="table table-striped">
+			   <tbody><tr>
+				  <td><input name="client" id="client" type="text" value="" placeholder="Code Client" class="form-control input-md"></td>
+				  <td><input name="idcmd" id="idcmd" type="text" value="" placeholder="ID Commande" class="form-control input-md"></td>
+				  <td><input name="datedebit" id="datedebit" type="date"  class="form-control input-md"><br>   <b>/</b>
+            <input name="datefin" id="datefin"  type="date" class="form-control input-md"></td>
+				  <td class="text-center">
+				  <button type="submit" name="Rechercher" value="Rechercher" class="btn btn-outline-success btn-sm">Rechercher</button>
+				  </td>
+
+			   </tr>
+
+			</tbody></table>
+		</form>
+		</span>
+          </h5><b>Total :</b> {{this.nbCommande}}	</div>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+<!--                <form [formGroup]="commandeForm" (ngSubmit)="updateCommande()">-->
+
+    <div class="col-12">
+
+      <table class="table table-striped">
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">prix</th>
+          <th class="text-center">Date/Par</th>
+          <th class="text-center">Etat</th>
+          <th class="text-center">Action</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+
+
+
+        <tr style="/*cursor: pointer;*/" *ngFor="let commande of commandes" class="cmdligne" >
+          <td class="text-center" >{{commande.commandeId}}</td>
+
+          <td class="text-center" >{{commande.prixCommande}} <br> </td>
+          <td class="text-center">{{ currentDate | date: 'dd/MM/yyyy' }}<br><b>{{commande.nom}}</b> {{commande.prenom}}</td>
+          <td class="text-center">
+              {{commande.etat}}
+<!--            <select name="etat"  [(ngModel)]="commande.etat">-->
+<!--              <option *ngFor="let etat of filteredEtats" [value]="etat" [selected]="commande.etat === etat">{{etat}}</option>-->
+<!--            </select>-->
+
+          </td>
+
+
+          <td width="20%">
+            <a  (click)="editCommande(commande)" class="btn btn-outline-warning btn-sm" style="display: block;margin: 0% 0% 7% 0;">Modifier</a>
+
+<!--            <a type="submit" target="_blank" class="btn btn-outline-info btn-sm" title="BON DE PREPARATION" alt="BON DE PREPARATION" style="display: block;margin: 0% 0% 7% 0;">Modifier Etat</a>-->
+            <!--            <a href="#" target="_blank" class="btn btn-outline-danger btn-sm" title="BON DE LIVRAISON" alt="BON DE LIVRAISON" style="display: block;margin: 0% 0% 7% 0;">BON DE LIVRAISON </a>-->
+            <!--            <a href="#" target="_blank" class="btn btn-outline-danger btn-sm" title="BON DE LIVRAISON" alt="BON DE LIVRAISON" style="display: block;margin: 0% 0% 7% 0;">BON DE LIVRAISON <br> Sans prix</a>-->
+            <a (click)="deleteCommande(commande)" target="_blank" class="btn btn-danger" style="display: block;margin: 0% 0% 7% 0;">Supprimer</a>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a class="page-link  classpageune " href="#">1   </a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,7 @@
+#sidebar-nav {
+  width: 260px;
+}
+a:hover{
+background-color: #008FFB;
+color: white;
+}

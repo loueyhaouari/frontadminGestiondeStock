@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="fournisseurForm" (ngSubmit)="updateFournisseur()"  class="form-horizontal" enctype="multipart/form-data" abineguid="51DD31745CCD4BA38CD10368C07CDC0C">
+        <fieldset>
+          <input type="hidden" name="id" value="74">
+          <!-- Form Name -->
+          <legend>Modifier Fournisseur</legend>
+
+          <table class="table">
+
+            <tbody><tr>
+              <td><b>Code Fournisseur :</b></td>
+              <td><input name="code" formControlName="id" value="client2" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Raison sociale :</b></td>
+              <td><input name="rs" formControlName="raisonSociale" value="client2" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Nom :</b></td>
+              <td><input name="nom" formControlName="nom" value="" type="text" class="form-control input-md"></td>
+            </tr>
+
+            <tr>
+              <td><b>Adresse :</b></td>
+              <td><input name="adress" formControlName="adresse" value="" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>CP :</b></td>
+              <td><input name="cp" formControlName="cp" value="" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Ville :</b></td>
+              <td><input name="ville" formControlName="ville" value="" type="text" class="form-control input-md"></td>
+            </tr>
+
+
+            <tr>
+              <td><b>Téléphone :</b></td>
+              <td><input name="tel" formControlName="telephone" value="" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Mobile :</b></td>
+              <td><input name="mobile" formControlName="mobile" value="" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>E-mail :</b></td>
+              <td><input name="email" formControlName="email" value=""  class="form-control input-md"></td>
+            </tr>
+            <!--<tr>
+                <td><b>Mot de passe:</b></td>
+                <td><input  name="pass" value="" type="password" class="form-control input-md"  ></td>
+              </tr>-->
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" name="Modifier" value="Modifier" class="btn btn-success mx-1">Enregistrer</button>
+                <a routerLink="/fournisseur" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+

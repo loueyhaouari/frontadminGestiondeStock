@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <form >
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+		<span style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		 	<table class="table table-striped">
+			   <tbody>
+
+			   <tr>
+					<td>
+						<span class="input-group-text" style="width: 100%;">
+							<select name="byclient" id="byclient" class="form-control" style="width: 100%">
+							<option value="" selected="">Toutes</option>
+							<option value="client">Par Client</option>
+
+							</select>
+						</span>
+					</td>
+					<td>
+						<span class="input-group-text" style="width: 100%;">
+							<select name="bystock" id="bystock" class="form-control" style="width: 100%">
+								<option value="" selected="">Toutes</option>
+								<option value="enstock">En stock</option>
+								<option value="nondisponible">Non disponible en stock</option>
+
+							</select>
+						</span>
+					</td>
+					<td>
+					   <span class="input-group-text" style="width: 100%;">
+							<input type="text" name="produit" value="" class="form-control input-md" placeholder="Produit">
+						</span>
+					</td>
+
+
+		        </tr>
+
+			</tbody></table>
+
+
+		</span>
+            </h5>
+          </div>
+          <div class="card-footer">
+            <table width="100%">
+              <tbody><tr>
+                <td class="text-left"><b>Total :</b> {{this.nbProduct}} </td>
+                <td class="text-left">
+                  <button type="submit" name="Rechercher" value="Rechercher" class="btn btn-outline-success btn-sm  ">Rechercher</button>
+                </td>
+                <td class="text-right">
+                  <a href="#" target="_blank" class="btn btn-outline-danger btn-sm"><i class="fa fa-file-pdf-o"></i></a>
+                </td>
+              </tr>
+
+              </tbody></table>
+          </div>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+      <table class="table table-striped" style="padding: 0rem !important;">
+        <thead class="thead-light">
+        <tr>
+
+          <th class="text-center" style="vertical-align: middle;">Produit</th>
+
+          <th class="text-center" style="vertical-align: middle;">Qte</th>
+          <th class="text-center" style="vertical-align: middle;">Stock disponible</th>
+          <th class="text-center" style="vertical-align: middle;">Stock final</th>
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr style="" class="cmdligne" *ngFor="let prod of products">
+          <td class="text-center" style="vertical-align: middle;">{{prod.nom}}</td>
+          <td class="text-center" style="vertical-align: middle;">{{prod.qte}}</td>
+          <td class="text-center" style="vertical-align: middle;">{{prod.stockMinimal}}</td>
+          <td class="text-center" style="vertical-align: middle;">{{prod.stockFinale}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a class="page-link  classpageune " href="#">1   </a></li>
+          <li class="page-item"><a class="page-link " href="#">2 </a></li>
+          <li class="page-item"><a class="page-link " href="#"> &gt; </a></li>
+          <li class="page-item"><a class="page-link " href="#"> &gt;&gt; </a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

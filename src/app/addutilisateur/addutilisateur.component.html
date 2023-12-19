@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="userForm" (ngSubmit)="AddUser()" class="form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Ajouter Utilisateur</legend>
+
+          <table class="table">
+
+            <tbody><tr>
+              <td><b>Nom :</b></td>
+              <td><input formControlName="nom" name="nom" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Prénom :</b></td>
+              <td><input name="prenom" formControlName="prenom" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Téléphone :</b></td>
+              <td><input name="tel" formControlName="telephone" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Mobile :</b></td>
+              <td><input name="mobile" formControlName="mobile" type="text" class="form-control input-md"></td>
+            </tr>
+
+
+            <tr>
+              <td><b>Mot de passe :</b></td>
+              <td>
+                <input name="pass" formControlName="password" type="password" class="form-control input-md">
+              </td>
+            </tr>
+            <tr>
+              <td><b>E-mail :</b></td>
+              <td>
+                <input name="email" formControlName="email" type="email" class="form-control">
+              </td>
+            </tr>
+            <tr>
+              <td><b>Type :</b></td>
+              <td>
+                <select formControlName="type" name="type" class="form-control">
+                  <option *ngFor="let t of type" value="{{t}}">{{t}}</option>
+
+                </select>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" name="Ajouter" value="Ajouter" class="btn btn-success mx-1">Enregistrer</button>
+                <a routerLink="/utilisateur" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>

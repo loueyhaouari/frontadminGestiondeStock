@@ -1,0 +1,5 @@
+<div>
+  <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="onUpload()">Upload Image</button>
+</div>
+<img [src]="image" alt="Image">

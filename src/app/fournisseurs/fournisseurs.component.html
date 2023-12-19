@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <form >
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+		<span style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		 	<table class="table table-striped">
+			   <tbody><tr>
+				  <td><input name="Codeclient" type="text" style="width: 100%;" value="" placeholder="Code Fournisseur" class="form-control input-md"></td>
+				  <td><input name="rs" type="text" style="width:100%;" value="" placeholder="Raison sociale" class="form-control input-md"></td>
+				  <td><input name="CP" type="text" style="width: 100%;" value="" placeholder="Code Postal" class="form-control input-md"></td>
+				  <td><input name="adresse" type="text" style="width: 100%;" value="" placeholder="Adresse" class="form-control input-md"></td>
+				  <td><input name="tel" type="text" style="width: 100%;" value="" placeholder="Téléphone" class="form-control input-md"></td>
+				  <td><input name="email" type="text" style="width: 100%;" value="" placeholder="E-mail" class="form-control input-md"></td>
+
+
+			   </tr>
+
+
+			</tbody></table>
+
+
+		</span>
+            </h5>
+          </div>
+
+          <div class="card-footer">
+            <table width="100%">
+              <tbody><tr>
+                <td class="text-left"><b>Total :</b>{{this.nbFournisseur}} </td>
+                <td class="text-center">
+                  <button type="submit" name="Rechercher" value="Rechercher" class="btn btn-outline-success btn-sm  ">Rechercher</button>
+                </td>
+                <td class="text-right">
+                  <a routerLink="/ajouterFournisseur" type="button" class="btn btn-success btn-sm">Ajouter Fournisseur</a>
+                </td>
+              </tr>
+              </tbody></table>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12 text-right">
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center">Code</th>
+          <th class="text-center">Raison sociale</th>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Adresse/Contact</th>
+
+          <th class="text-center">Date</th>
+          <th width="10%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let four of fournisseurs">
+          <td class="text-center">{{four.id}}</td>
+          <td class="text-center">{{four.raisonSociale}}</td>
+          <td class="text-center">{{four.nom}}</td>
+          <td class="text-center">{{four.adresse}} </td>
+
+
+          <td class="text-center">{{ currentDate | date: 'dd/MM/yyyy' }}</td>
+
+          <td width="10%">
+            <a (click)="editFournisseur(four)" class="btn btn-outline-warning btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Modifier</a>
+
+            <a (click)="deleteFournisseur(four)"  class="btn btn-outline-danger btn-sm" style="width: 100%;margin: 6% 0% 6% 0%;">Supprimer</a>
+
+          </td>
+        </tr>
+
+
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a class="page-link  classpageune " href="#">1   </a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+  </div>
+</div>

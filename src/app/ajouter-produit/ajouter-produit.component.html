@@ -1,0 +1,741 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="ngForm" (ngSubmit)="AddProduct()" class="form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Ajouter Produit</legend>
+
+          <table class="table">
+
+            <tbody>
+            <tr>
+              <td><b>Nom Produit</b></td>
+              <td>
+                <input formControlName="nom" name="nom" id="nom" type="text" placeholder="nom_produit"
+                       class="form-control input-md">
+
+              </td>
+
+            </tr>
+
+
+            <tr>
+              <td><b>Gammes :<span class="text-danger">*</span></b></td>
+              <td>
+                <div class="" formGroupName="categorie">
+                  <select formControlName="id" name="idcat" id="idcat" class="form-control select2-hidden-accessible"
+                          style="width: 100%" data-select2-id="idcat" tabindex="-1" aria-hidden="true">
+                    <option value="" data-select2-id="2">Choisir</option>
+
+                    <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.nom}}</option>
+
+
+                  </select>
+
+                </div>
+
+              </td>
+            </tr>
+            <tr>
+              <td><b>Familie :<span class="text-danger">*</span></b></td>
+              <td>
+                <div class="" formGroupName="famille">
+                  <select formControlName="id" name="idcat" id="idcat" class="form-control select2-hidden-accessible"
+                          style="width: 100%" data-select2-id="idcat" tabindex="-1" aria-hidden="true">
+                    <option value="" data-select2-id="2">Choisir</option>
+
+                    <option *ngFor="let f of familles" value="{{f.id}}">{{f.nom}}</option>
+
+
+                  </select>
+
+                  <!--                  <span class="select2 select2-container select2-container&#45;&#45;default" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection&#45;&#45;single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-idcat-container"><span class="select2-selection__rendered" id="select2-idcat-container" role="textbox" aria-readonly="true" title="Choisir">Choisir</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>-->
+                  <!--                -->
+                </div>
+
+                <select name="idsouscat" id="idsouscat" class="form-control select2-hidden-accessible"
+                        style="width: 100%" data-select2-id="idsouscat" tabindex="-1" aria-hidden="true">
+                </select>
+                <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="8"
+                      style="width: 100%;"><span class="selection"><span
+                  class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true"
+                  aria-expanded="false" tabindex="0" aria-disabled="false"
+                  aria-labelledby="select2-idsouscat-container"><span class="select2-selection__rendered"
+                                                                      id="select2-idsouscat-container" role="textbox"
+                                                                      aria-readonly="true"></span><span
+                  class="select2-selection__arrow" role="presentation"><b
+                  role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Variété :<span class="text-danger">*</span></b></td>
+              <td><input name="titre" type="text" placeholder="Variété" class="form-control input-md" required=""></td>
+            </tr>
+            <tr>
+              <td><b>Prix :</b></td>
+              <td>
+                <input formControlName="prix" name="cat" type="text" class="form-control input-md">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td><b>Pays d'origine : </b></td>
+              <td>
+                <select name="ORIGINE" id="ORIGINE" class="form-control select2-hidden-accessible" style="width: 100%"
+                        data-select2-id="ORIGINE" tabindex="-1" aria-hidden="true">
+                  <option value="" data-select2-id="4">Choisir</option>
+
+                  <option value="FRANCE">FRANCE</option>
+
+                  <option value="AFGHANISTAN">AFGHANISTAN</option>
+
+                  <option value="AFRIQUE DU SUD">AFRIQUE DU SUD</option>
+
+                  <option value="ALBANIE">ALBANIE</option>
+
+                  <option value="ALGÉRIE">ALGÉRIE</option>
+
+                  <option value="ALLEMAGNE">ALLEMAGNE</option>
+
+                  <option value="ARABIE SAOUDITE">ARABIE SAOUDITE</option>
+
+                  <option value="ARGENTINE">ARGENTINE</option>
+
+                  <option value="AUSTRALIE">AUSTRALIE</option>
+
+                  <option value="AUTRICHE">AUTRICHE</option>
+
+                  <option value="BELGIQUE">BELGIQUE</option>
+
+                  <option value="BRÉSIL">BRÉSIL</option>
+
+                  <option value="BULGARIE">BULGARIE</option>
+
+                  <option value="CANADA">CANADA</option>
+
+                  <option value="CHILI">CHILI</option>
+
+                  <option value="CHINE (RÉP. POPULAIRE DE)">CHINE (RÉP. POPULAIRE DE)</option>
+
+                  <option value="COLOMBIE">COLOMBIE</option>
+
+                  <option value="CORÉE DU SUD">CORÉE DU SUD</option>
+
+                  <option value="COSTA RICA">COSTA RICA</option>
+
+                  <option value="CROATIE">CROATIE</option>
+
+                  <option value="DANEMARK">DANEMARK</option>
+
+                  <option value="EGYPTE">EGYPTE</option>
+
+                  <option value="EMIRATS ARABES UNIS">EMIRATS ARABES UNIS</option>
+
+                  <option value="EQUATEUR">EQUATEUR</option>
+
+                  <option value="ETATS-UNIS">ETATS-UNIS</option>
+
+                  <option value="SALVADOR">SALVADOR</option>
+
+                  <option value="ESPAGNE">ESPAGNE</option>
+
+                  <option value="FINLANDE">FINLANDE</option>
+
+                  <option value="GRÈCE">GRÈCE</option>
+
+                  <option value="HONG KONG">HONG KONG</option>
+
+                  <option value="HONGRIE">HONGRIE</option>
+
+                  <option value="INDE">INDE</option>
+
+                  <option value="INDONÉSIE">INDONÉSIE</option>
+
+                  <option value="IRLANDE">IRLANDE</option>
+
+                  <option value="ISRAËL">ISRAËL</option>
+
+                  <option value="ITALIE">ITALIE</option>
+
+                  <option value="JAPON">JAPON</option>
+
+                  <option value="JORDANIE">JORDANIE</option>
+
+                  <option value="LIBAN">LIBAN</option>
+
+                  <option value="MALAISIE">MALAISIE</option>
+
+                  <option value="MAROC">MAROC</option>
+
+                  <option value="MEXIQUE">MEXIQUE</option>
+
+                  <option value="NORVÈGE">NORVÈGE</option>
+
+                  <option value="NOUVELLE-ZÉLANDE">NOUVELLE-ZÉLANDE</option>
+
+                  <option value="PÉROU">PÉROU</option>
+
+                  <option value="PAKISTAN">PAKISTAN</option>
+
+                  <option value="PAYS-BAS">PAYS-BAS</option>
+
+                  <option value="PHILIPPINES">PHILIPPINES</option>
+
+                  <option value="POLOGNE">POLOGNE</option>
+
+                  <option value="PORTO RICO">PORTO RICO</option>
+
+                  <option value="PORTUGAL">PORTUGAL</option>
+
+                  <option value="TCHÈQUE (RÉPUBLIQUE)">TCHÈQUE (RÉPUBLIQUE)</option>
+
+                  <option value="ROUMANIE">ROUMANIE</option>
+
+                  <option value="ROYAUME-UNI (UK)">ROYAUME-UNI (UK)</option>
+
+                  <option value="RUSSIE">RUSSIE</option>
+
+                  <option value="SINGAPOUR">SINGAPOUR</option>
+
+                  <option value="SUÈDE">SUÈDE</option>
+
+                  <option value="SUISSE">SUISSE</option>
+
+                  <option value="TAÏWAN">TAÏWAN</option>
+
+                  <option value="THAÏLANDE">THAÏLANDE</option>
+
+                  <option value="TURQUIE">TURQUIE</option>
+
+                  <option value="UKRAINE">UKRAINE</option>
+
+                  <option value="VENEZUELA">VENEZUELA</option>
+
+                  <option value="SAMOA">SAMOA</option>
+
+                  <option value="ANDORRE">ANDORRE</option>
+
+                  <option value="ANGOLA">ANGOLA</option>
+
+                  <option value="ANGUILLA">ANGUILLA</option>
+
+                  <option value="ANTARCTIQUE">ANTARCTIQUE</option>
+
+                  <option value="ANTIGUA-ET-BARBUDA">ANTIGUA-ET-BARBUDA</option>
+
+                  <option value="ARMÉNIE">ARMÉNIE</option>
+
+                  <option value="ARUBA">ARUBA</option>
+
+                  <option value="AZERBAÏDJAN">AZERBAÏDJAN</option>
+
+                  <option value="BAHAMAS">BAHAMAS</option>
+
+                  <option value="BAHREÏN (ROYAUME DE)">BAHREÏN (ROYAUME DE)</option>
+
+                  <option value="BANGLADESH">BANGLADESH</option>
+
+                  <option value="BIÉLORUSSIE">BIÉLORUSSIE</option>
+
+                  <option value="BELIZE">BELIZE</option>
+
+                  <option value="BÉNIN">BÉNIN</option>
+
+                  <option value="BERMUDES (LES)">BERMUDES (LES)</option>
+
+                  <option value="BHOUTAN">BHOUTAN</option>
+
+                  <option value="BOLIVIE">BOLIVIE</option>
+
+                  <option value="BOSNIE-HERZÉGOVINE">BOSNIE-HERZÉGOVINE</option>
+
+                  <option value="BOTSWANA">BOTSWANA</option>
+
+                  <option value="BOUVET (ILES)">BOUVET (ILES)</option>
+
+                  <option value="TERRITOIRE BRITANNIQUE DE L&#39;OCÉAN INDIEN">TERRITOIRE BRITANNIQUE DE L'OCÉAN
+                    INDIEN
+                  </option>
+
+                  <option value="VIERGES BRITANNIQUES (ILES)">VIERGES BRITANNIQUES (ILES)</option>
+
+                  <option value="BRUNEI">BRUNEI</option>
+
+                  <option value="BURKINA FASO">BURKINA FASO</option>
+
+                  <option value="BURUNDI">BURUNDI</option>
+
+                  <option value="CAMBODGE">CAMBODGE</option>
+
+                  <option value="CAMEROUN">CAMEROUN</option>
+
+                  <option value="CAP VERT">CAP VERT</option>
+
+                  <option value="CAÏMAN (ILES)">CAÏMAN (ILES)</option>
+
+                  <option value="CENTRAFRIQUE (RÉP. DE)">CENTRAFRIQUE (RÉP. DE)</option>
+
+                  <option value="TCHAD">TCHAD</option>
+
+                  <option value="CHRISTMAS (ILE)">CHRISTMAS (ILE)</option>
+
+                  <option value="COCOS (ILES - KEELING)">COCOS (ILES - KEELING)</option>
+
+                  <option value="COMORES (UNION DES)">COMORES (UNION DES)</option>
+
+                  <option value="CONGO (RÉP. DÉMOCRATIQUE DU)">CONGO (RÉP. DÉMOCRATIQUE DU)</option>
+
+                  <option value="COOK (ILES)">COOK (ILES)</option>
+
+                  <option value="CUBA">CUBA</option>
+
+                  <option value="CHYPRE">CHYPRE</option>
+
+                  <option value="DJIBOUTI">DJIBOUTI</option>
+
+                  <option value="DOMINIQUE">DOMINIQUE</option>
+
+                  <option value="DOMINICAINE (RÉPUBLIQUE)">DOMINICAINE (RÉPUBLIQUE)</option>
+
+                  <option value="TIMOR ORIENTAL">TIMOR ORIENTAL</option>
+
+                  <option value="GUINÉE EQUATORIALE">GUINÉE EQUATORIALE</option>
+
+                  <option value="ERYTHRÉE">ERYTHRÉE</option>
+
+                  <option value="ESTONIE">ESTONIE</option>
+
+                  <option value="ETHIOPIE">ETHIOPIE</option>
+
+                  <option value="MALOUINES (ILE FALKLAND)">MALOUINES (ILE FALKLAND)</option>
+
+                  <option value="FÉROÉ (ILES)">FÉROÉ (ILES)</option>
+
+                  <option value="FIDJI (RÉP. DES)">FIDJI (RÉP. DES)</option>
+
+                  <option value="GUYANE FRANÇAISE">GUYANE FRANÇAISE</option>
+
+                  <option value="POLYNÉSIE FRANÇAISE">POLYNÉSIE FRANÇAISE</option>
+
+                  <option value="TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES (TAAF)">TERRES AUSTRALES ET ANTARCTIQUES
+                    FRANÇAISES (TAAF)
+                  </option>
+
+                  <option value="GABON">GABON</option>
+
+                  <option value="GAMBIE">GAMBIE</option>
+
+                  <option value="GÉORGIE">GÉORGIE</option>
+
+                  <option value="GHANA">GHANA</option>
+
+                  <option value="GIBRALTAR">GIBRALTAR</option>
+
+                  <option value="GROENLAND">GROENLAND</option>
+
+                  <option value="GRENADE (ILE)">GRENADE (ILE)</option>
+
+                  <option value="GUADELOUPE">GUADELOUPE</option>
+
+                  <option value="GUAM">GUAM</option>
+
+                  <option value="GUATEMALA">GUATEMALA</option>
+
+                  <option value="GUINÉE">GUINÉE</option>
+
+                  <option value="GUINÉE-BISSAU">GUINÉE-BISSAU</option>
+
+                  <option value="GUYANA (RÉP. DU)">GUYANA (RÉP. DU)</option>
+
+                  <option value="HAÏTI (RÉP. D&#39;)">HAÏTI (RÉP. D')</option>
+
+                  <option value="HEARD-ET-MACDONALD (ILES)">HEARD-ET-MACDONALD (ILES)</option>
+
+                  <option value="HONDURAS">HONDURAS</option>
+
+                  <option value="ISLANDE">ISLANDE</option>
+
+                  <option value="IRAN">IRAN</option>
+
+                  <option value="IRAK">IRAK</option>
+
+                  <option value="CÔTE D&#39;IVOIRE">CÔTE D'IVOIRE</option>
+
+                  <option value="JAMAÏQUE">JAMAÏQUE</option>
+
+                  <option value="KENYA">KENYA</option>
+
+                  <option value="KIRIBATI">KIRIBATI</option>
+
+                  <option value="CORÉE DU NORD">CORÉE DU NORD</option>
+
+                  <option value="KOWEÏT">KOWEÏT</option>
+
+                  <option value="KIRGHIZISTAN">KIRGHIZISTAN</option>
+
+                  <option value="LAOS">LAOS</option>
+
+                  <option value="LETTONIE">LETTONIE</option>
+
+                  <option value="LESOTHO">LESOTHO</option>
+
+                  <option value="LIBERIA">LIBERIA</option>
+
+                  <option value="LIBYE">LIBYE</option>
+
+                  <option value="LIECHTENSTEIN">LIECHTENSTEIN</option>
+
+                  <option value="LITUANIE">LITUANIE</option>
+
+                  <option value="LUXEMBOURG">LUXEMBOURG</option>
+
+                  <option value="MACAO">MACAO</option>
+
+                  <option value="MACÉDOINE">MACÉDOINE</option>
+
+                  <option value="MADAGASCAR">MADAGASCAR</option>
+
+                  <option value="MALAWI">MALAWI</option>
+
+                  <option value="MALDIVES (ILES)">MALDIVES (ILES)</option>
+
+                  <option value="MALI">MALI</option>
+
+                  <option value="MALTE">MALTE</option>
+
+                  <option value="MARSHALL (ILES)">MARSHALL (ILES)</option>
+
+                  <option value="MARTINIQUE">MARTINIQUE</option>
+
+                  <option value="MAURITANIE">MAURITANIE</option>
+
+                  <option value="MAURICE (ILE)">MAURICE (ILE)</option>
+
+                  <option value="MAYOTTE">MAYOTTE</option>
+
+                  <option value="MICRONÉSIE (ETATS FÉDÉRÉS DE)">MICRONÉSIE (ETATS FÉDÉRÉS DE)</option>
+
+                  <option value="MOLDAVIE">MOLDAVIE</option>
+
+                  <option value="MONACO">MONACO</option>
+
+                  <option value="MONGOLIE">MONGOLIE</option>
+
+                  <option value="MONTSERRAT">MONTSERRAT</option>
+
+                  <option value="MOZAMBIQUE">MOZAMBIQUE</option>
+
+                  <option value="BIRMANIE">BIRMANIE</option>
+
+                  <option value="NAMIBIE">NAMIBIE</option>
+
+                  <option value="NAURU">NAURU</option>
+
+                  <option value="NÉPAL">NÉPAL</option>
+
+                  <option value="ANTILLES NÉERLANDAISES">ANTILLES NÉERLANDAISES</option>
+
+                  <option value="NOUVELLE-CALÉDONIE">NOUVELLE-CALÉDONIE</option>
+
+                  <option value="NICARAGUA">NICARAGUA</option>
+
+                  <option value="NIGER">NIGER</option>
+
+                  <option value="NIGERIA">NIGERIA</option>
+
+                  <option value="NIUE">NIUE</option>
+
+                  <option value="NORFOLK (ILES)">NORFOLK (ILES)</option>
+
+                  <option value="MARIANNES DU NORD (ILES)">MARIANNES DU NORD (ILES)</option>
+
+                  <option value="OMAN">OMAN</option>
+
+                  <option value="PALAOS">PALAOS</option>
+
+                  <option value="PANAMÁ">PANAMÁ</option>
+
+                  <option value="PAPOUASIE-NOUVELLE-GUINÉE">PAPOUASIE-NOUVELLE-GUINÉE</option>
+
+                  <option value="PARAGUAY">PARAGUAY</option>
+
+                  <option value="PITCAIRN (ILES)">PITCAIRN (ILES)</option>
+
+                  <option value="QATAR">QATAR</option>
+
+                  <option value="RÉUNION (ILE DE LA)">RÉUNION (ILE DE LA)</option>
+
+                  <option value="RWANDA">RWANDA</option>
+
+                  <option value="GÉORGIE DU SUD ET SANDWICH DU SUD (ILES)">GÉORGIE DU SUD ET SANDWICH DU SUD (ILES)
+                  </option>
+
+                  <option value="SAINT-CHRISTOPHE-ET-NIÉVÈS">SAINT-CHRISTOPHE-ET-NIÉVÈS</option>
+
+                  <option value="SAINTE-LUCIE">SAINTE-LUCIE</option>
+
+                  <option value="SAINT-VINCENT-ET-LES GRENADINES">SAINT-VINCENT-ET-LES GRENADINES</option>
+
+                  <option value="SAINT-MARIN">SAINT-MARIN</option>
+
+                  <option value="SAO TOMÉ-ET-PRINCIPE">SAO TOMÉ-ET-PRINCIPE</option>
+
+                  <option value="SÉNÉGAL">SÉNÉGAL</option>
+
+                  <option value="SEYCHELLES">SEYCHELLES</option>
+
+                  <option value="SIERRA LEONE">SIERRA LEONE</option>
+
+                  <option value="SLOVAQUIE">SLOVAQUIE</option>
+
+                  <option value="SLOVÉNIE">SLOVÉNIE</option>
+
+                  <option value="SOMALIE">SOMALIE</option>
+
+                  <option value="SRI LANKA">SRI LANKA</option>
+
+                  <option value="SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA">SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA
+                    CUNHA
+                  </option>
+
+                  <option value="SAINT-PIERRE-ET-MIQUELON">SAINT-PIERRE-ET-MIQUELON</option>
+
+                  <option value="SOUDAN">SOUDAN</option>
+
+                  <option value="SURINAME">SURINAME</option>
+
+                  <option value="SVALBARD (SPITZBERG) ET JAN MAYEN (ILES)">SVALBARD (SPITZBERG) ET JAN MAYEN (ILES)
+                  </option>
+
+                  <option value="SWAZILAND">SWAZILAND</option>
+
+                  <option value="SYRIE">SYRIE</option>
+
+                  <option value="TADJIKISTAN">TADJIKISTAN</option>
+
+                  <option value="TANZANIE">TANZANIE</option>
+
+                  <option value="TOGO">TOGO</option>
+
+                  <option value="TOKELAU">TOKELAU</option>
+
+                  <option value="TONGA">TONGA</option>
+
+                  <option value="TRINIDAD-ET-TOBAGO">TRINIDAD-ET-TOBAGO</option>
+
+                  <option value="TUNISIE">TUNISIE</option>
+
+                  <option value="TURKMÉNISTAN">TURKMÉNISTAN</option>
+
+                  <option value="TURQUES ET CAÏQUES (ILES)">TURQUES ET CAÏQUES (ILES)</option>
+
+                  <option value="TUVALU">TUVALU</option>
+
+                  <option value="WAKE (ILE)">WAKE (ILE)</option>
+
+                  <option value="OUGANDA">OUGANDA</option>
+
+                  <option value="URUGUAY">URUGUAY</option>
+
+                  <option value="OUZBÉKISTAN">OUZBÉKISTAN</option>
+
+                  <option value="VANUATU">VANUATU</option>
+
+                  <option value="VATICAN (ETAT DU)">VATICAN (ETAT DU)</option>
+
+                  <option value="VIÊT NAM">VIÊT NAM</option>
+
+                  <option value="VIERGES DES ETATS-UNIS (ILES)">VIERGES DES ETATS-UNIS (ILES)</option>
+
+                  <option value="WALLIS ET FUTUNA (ILES)">WALLIS ET FUTUNA (ILES)</option>
+
+                  <option value="SAHARA OCCIDENTAL">SAHARA OCCIDENTAL</option>
+
+                  <option value="YÉMEN">YÉMEN</option>
+
+                  <option value="ZAMBIE">ZAMBIE</option>
+
+                  <option value="ZIMBABWE">ZIMBABWE</option>
+
+                  <option value="ZANZIBAR">ZANZIBAR</option>
+
+                  <option value="BARBADE (LA)">BARBADE (LA)</option>
+
+                  <option value="MADÈRE">MADÈRE</option>
+
+                  <option value="KRAÏ DE KRASNOÏARSK">KRAÏ DE KRASNOÏARSK</option>
+
+                  <option value="SAINT-BARTHÉLEMY">SAINT-BARTHÉLEMY</option>
+
+                  <option value="SAINT-MARTIN">SAINT-MARTIN</option>
+
+                  <option value="SERBIE">SERBIE</option>
+
+                  <option value="KOSOVO">KOSOVO</option>
+
+                  <option value="MONTÉNÉGRO">MONTÉNÉGRO</option>
+
+                  <option value="HAWAÏ (ILE)">HAWAÏ (ILE)</option>
+
+                  <option value="KRAÏ DE L&#39;ALTAÏ">KRAÏ DE L'ALTAÏ</option>
+
+                  <option value="KRAÏ DE TRANSBAÏKALIE">KRAÏ DE TRANSBAÏKALIE</option>
+
+                  <option value="OBLAST DE KEMEROVO">OBLAST DE KEMEROVO</option>
+
+                  <option value="OBLAST DE NOVOSSIBIRSK">OBLAST DE NOVOSSIBIRSK</option>
+
+                  <option value="OBLAST DE TOMSK">OBLAST DE TOMSK</option>
+
+                  <option value="OBLAST D&#39;IRKOUTSK">OBLAST D'IRKOUTSK</option>
+
+                  <option value="OBLAST D&#39;OMSK">OBLAST D'OMSK</option>
+
+                  <option value="BOURIATIE (RÉP. DE)">BOURIATIE (RÉP. DE)</option>
+
+                  <option value="KHAKASSIE (RÉP. DE)">KHAKASSIE (RÉP. DE)</option>
+
+                  <option value="ALTAÏ (RÉP. DE L&#39;)">ALTAÏ (RÉP. DE L')</option>
+
+                  <option value="TOUVA (RÉP. DE)">TOUVA (RÉP. DE)</option>
+
+                  <option value="AÇORES">AÇORES</option>
+
+                  <option value="CANARIES (ILES)">CANARIES (ILES)</option>
+
+                  <option value="EPARSES (ILES)">EPARSES (ILES)</option>
+
+                  <option value="CEUTA">CEUTA</option>
+
+                  <option value="MELILLA">MELILLA</option>
+
+                  <option value="PLAZAS DE SOBERANÍA">PLAZAS DE SOBERANÍA</option>
+
+                  <option value="CHAGOS (ARCHIPEL DES)">CHAGOS (ARCHIPEL DES)</option>
+
+                  <option value="NAVASSE (ILE DE LA)">NAVASSE (ILE DE LA)</option>
+
+                  <option value="GALÁPAGOS (ILES)">GALÁPAGOS (ILES)</option>
+
+                  <option value="SAN ANDRÉS ET PROVIDENCIA">SAN ANDRÉS ET PROVIDENCIA</option>
+
+                  <option value="CLIPPERTON (ILE)">CLIPPERTON (ILE)</option>
+
+                  <option value="BONAIRE">BONAIRE</option>
+
+                  <option value="SAINT-EUSTACHE">SAINT-EUSTACHE</option>
+
+                  <option value="ANGLETERRE (UK)">ANGLETERRE (UK)</option>
+
+                  <option value="ECOSSE (UK)">ECOSSE (UK)</option>
+
+                  <option value="PAYS DE GALLES (UK)">PAYS DE GALLES (UK)</option>
+
+                  <option value="IRLANDE DU NORD (UK)">IRLANDE DU NORD (UK)</option>
+
+                  <option value="SAINT-MARTIN (ETAT)">SAINT-MARTIN (ETAT)</option>
+
+                  <option value="CONGO (RÉP. DU)">CONGO (RÉP. DU)</option>
+
+                  <option value="JERSEY (ILE)">JERSEY (ILE)</option>
+
+                  <option value="KAZAKHSTAN">KAZAKHSTAN</option>
+
+                  <option value="OSSÉTIE DU SUD">OSSÉTIE DU SUD</option>
+
+                </select></td>
+            </tr>
+            <tr>
+              <td><b>Unité :<span class="text-danger">*</span></b></td>
+              <td>
+                <select formControlName="packaging" name="Unite" id="Unite"
+                        class="form-control select2-hidden-accessible" style="width: 100%" data-select2-id="Unite"
+                        tabindex="-1" aria-hidden="true">
+                  <option value="" data-select2-id="6">Choisir</option>
+
+                  <option *ngFor="let unit of unite" value="{{unit.nom}}">{{unit.nom}}</option>
+
+
+                </select></td>
+            </tr>
+            <tr>
+              <td><b>Disponibilité :</b></td>
+              <td>
+                <select name="dispo" id="dispo" class="form-control" style="width: 100%">
+                  <option value="1">Oui</option>
+                  <option value="0">Non</option>
+                </select>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td><b>Image :</b></td>
+              <td>
+                <input type="file" name="image" formControlName="photoName" class="form-control-file"
+                       id="exampleFormControlFile1">
+              </td>
+            </tr>
+            <tr>
+              <td><b>Batiment : </b></td>
+              <td>
+                <select name="block" id="block" class="form-control" style="width: 100%">
+                  <option value="">Choisir</option>
+
+                  <option value="1" *ngFor="let bat of batiments" >{{bat.nom}}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Fournisseur : </b></td>
+              <td>
+                <div formGroupName="fournisseur">
+                  <select formControlName="id" name="Fournisseur" id="fournisseur"
+                          class="form-control select2-hidden-accessible" style="width: 100%" data-select2-id="Unite"
+                          tabindex="-1" aria-hidden="true">
+                    <option value="" data-select2-id="6">Choisir</option>
+
+                    <option *ngFor="let fournisseur of fournisseurs" value="{{fournisseur.id}}">
+                      {{fournisseur.nom}}</option>
+
+
+                  </select>
+                </div>
+
+
+              </td>
+            </tr>
+            <tr>
+              <td><b>qte : </b></td>
+              <td>
+                <input formControlName="qte" name="qte" type="number" class="form-control input-md">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" name="Ajouter" [disabled]="ngForm.invalid" id="Ajouterprouit" value="Ajouter"
+                        class="btn btn-success mx-2">Ajouter
+                </button>
+                <a routerLink="/produits" name="button2id" class="btn btn-warning">Annuler</a>
+              </td>
+
+            </tr>
+
+
+            </tbody>
+          </table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>

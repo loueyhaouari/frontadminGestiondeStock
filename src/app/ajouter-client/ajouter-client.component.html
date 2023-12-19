@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="clientForm" (ngSubmit)="AddClient()" class="form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Ajouter Client</legend>
+
+          <table class="table">
+
+            <tbody><tr>
+              <td><b>Code Client :</b></td>
+              <td><input name="code" formControlName="id" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Raison sociale :</b></td>
+              <td><input name="rs" formControlName="raisonSociale" type="text" class="form-control input-md" required=""></td>
+            </tr>
+            <tr>
+              <td><b>Nom :</b></td>
+              <td><input name="nom" formControlName="nom" type="text" class="form-control input-md"></td>
+            </tr>
+
+            <tr>
+              <td><b>Adresse :</b></td>
+              <td><input name="adress" formControlName="adresse" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>CP :</b></td>
+              <td><input name="cp" type="text" formControlName="cp" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Ville :</b></td>
+              <td><input name="ville" formControlName="ville" type="text" class="form-control input-md"></td>
+            </tr>
+
+
+            <tr>
+              <td><b>Téléphone :</b></td>
+              <td><input name="tel" type="text" formControlName="telephone" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>Mobile :</b></td>
+              <td><input name="mobile" formControlName="mobile" type="text" class="form-control input-md"></td>
+            </tr>
+            <tr>
+              <td><b>E-mail :</b></td>
+              <td><input name="email" formControlName="email" type="mail" class="form-control input-md"></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" name="Ajouter" value="Ajouter" class="btn btn-success mx-2">Enregistrer</button>
+                <a routerLink="/client" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>

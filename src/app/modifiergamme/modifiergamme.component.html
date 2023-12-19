@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="categorieForm" (ngSubmit)="updateCategorie()" class="form-horizontal" enctype="multipart/form-data" >
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Modifier  Gammes</legend>
+
+          <table class="table">
+
+            <tbody>
+
+            <tr>
+              <td><b>Nom Gammes :</b></td>
+              <td><input id="textinput" formControlName="nom" type="text"  placeholder="Nom Gammes" class="form-control input-md" required=""></td>
+            </tr>
+            <tr>
+              <td><b>Description Gammes :</b></td>
+              <td>
+                <textarea class="form-control" id="textarea" name="description"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Visibilité :</b></td>
+              <td>
+                <input type="radio" name="visibilite" id="radios-0" value="1" checked="checked" style="zoom: 1.5;"> Oui
+                <br>
+                <input type="radio" name="visibilite" id="radios-1" value="0" style="zoom: 1.5;"> Non
+              </td>
+            </tr>
+            <tr>
+              <td><b>Image :</b></td>
+              <td>
+                <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-center">
+                <button  name="Ajouter" value="Ajouter" class="btn btn-success mx-1">Enregistrer</button>
+                <a routerLink="/gammes" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>

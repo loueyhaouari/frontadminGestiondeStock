@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form [formGroup]="ngForm" (ngSubmit)="addFamille()" class="form-horizontal" enctype="multipart/form-data" >
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Ajouter Famille</legend>
+
+          <table class="table">
+
+            <tbody><tr>
+              <td><b>Nom Famille :</b></td>
+              <td><input id="textinput" name="nom" formControlName="nom" type="text" placeholder="Nom Famille" class="form-control input-md" required=""></td>
+            </tr>
+            <tr>
+              <td><b>Description Famille :</b></td>
+              <td>
+                <textarea class="form-control" id="textarea" name="description"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Gammes :</b></td>
+              <td>
+                <div class="" formGroupName="categorie">
+                  <select  formControlName="id" class="form-control select2-hidden-accessible" style="width: 100%" data-select2-id="idcat" tabindex="-1" aria-hidden="true">
+                                      <option value="0" data-select2-id="2">Choisir</option>
+
+                    <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.nom}}</option>
+
+                  </select>
+                </div>
+                <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-idcat-container"><span class="select2-selection__rendered" id="select2-idcat-container" role="textbox" aria-readonly="true" title="Choisir"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><b>Visibilité :</b></td>
+              <td>
+                <input type="radio" name="visibilite" id="radios-0" value="1" checked="checked" style="zoom: 1.5;"> Oui
+                <br>
+                <input type="radio" name="visibilite" id="radios-1" value="0" style="zoom: 1.5;"> Non
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-center">
+                <button [disabled]="!this.ngForm.valid" type="submit" name="Ajouter" id="Ajoutersoucat" value="Ajouter" class="btn btn-success mx-1">Enregistrer</button>
+                <a routerLink="/famille" name="button2id" class="btn btn-warning">Fermer</a>
+              </td>
+
+            </tr>
+
+
+            </tbody></table>
+
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+</div>
